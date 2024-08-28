@@ -3,6 +3,14 @@ import Tarefa from "../models/tarefaModel.js";
 export const create = async (request, response) => {
   const { tarefa, descricao } = request.body;
   const status = "pendente";
+  
+  
+  export const getAll = async(request, response) => {
+    try{
+      const tarefas = await Tarefa.findAndCountAll
+    }
+  }
+
 
   if (!tarefa) {
     response.status(400).json({ err: "a tarefa é obrigatória" });
