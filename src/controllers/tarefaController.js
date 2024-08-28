@@ -1,3 +1,4 @@
+import { request, response } from "express";
 import Tarefa from "../models/tarefaModel.js";
 
 //tarefas?page=1&limit=10
@@ -57,3 +58,14 @@ export const create = async (request, response) => {
     response.status(500).json({ message: "erro ao cadastrar tarefa" });
   }
 };
+
+export const getTarefa = async(request, response) => {
+  const {id} = request.params
+
+  try{
+    const tarefa = await Tarefa.findByPk(id)
+    response.status(200).json(tarefa)
+  } catch (error) {
+     response.status(500).json({message: "Erro ao buscar tarefa"})
+  }
+}
