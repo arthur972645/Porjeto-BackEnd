@@ -30,8 +30,6 @@ export const getAll = async(request, response) => {
   }
 }
  
-
-
 export const create = async (request, response) => {
   const { tarefa, descricao } = request.body;
   const status = "pendente";
@@ -69,3 +67,5 @@ export const getTarefa = async(request, response) => {
      response.status(500).json({message: "Erro ao buscar tarefa"})
   }
 }
+
+//fazer o update
